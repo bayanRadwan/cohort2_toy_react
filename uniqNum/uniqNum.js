@@ -9,5 +9,21 @@
 // output: [['orange', 2], ['red', 2], ['blue', 1]]
 
 var uniqNum=function(array){
-	
-}
+	var arr=[];
+	var count = 0;
+	var newarr=[];
+	for(var i = 0 ; i < array.length; i++){
+		if(array[i] === array[i++] ){
+			count++;
+			// array.shift()
+			newarr.push(array.shift(),count)
+			
+		}else if(array.length > 0){
+			uniqNum(array)
+		}
+	}
+	arr.push(newarr);
+	return arr;
+	}	
+
+

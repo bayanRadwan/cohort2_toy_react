@@ -1,7 +1,7 @@
 //modify this file
 class FishTableRow extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       clicked: false
     };
@@ -13,15 +13,10 @@ class FishTableRow extends React.Component {
       <tr onClick={() => this.setState({clicked: !this.state.clicked})}>
         <td className="fish-name">Nemoo</td>
         <td>
-          <img src="http://tinyurl.com/h8o5szh"/>
+          <img src="this.props.fish.image"/>
         </td>
         {this.state.clicked ? <td className="fish-description">Does anyone know where my dad is?</td> : this.props.fish.description}
       </tr>
     )
   }
 }
-
-// Using Babel means that free floating `var` declarations normally
-// expected to be available in the global scope will not exist
-// unless you explicitly define them on the `window` object.
-window.FishTableRow = FishTableRow;
